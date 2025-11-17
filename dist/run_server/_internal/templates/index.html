@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Excel + ZIP Uploader</title>
+</head>
+<body>
+    <h2>Upload Excel and ZIP Files</h2>
+
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <p>
+            <label>Excel File (.xlsx):</label><br>
+            <input type="file" name="excel" accept=".xlsx" required>
+        </p>
+
+        <p>
+            <label>ZIP File (images):</label><br>
+            <input type="file" name="zip" accept=".zip" required>
+        </p>
+
+        <button type="submit">Upload and Process</button>
+    </form>
+</body>
+</html>
