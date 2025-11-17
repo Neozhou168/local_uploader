@@ -1,4 +1,4 @@
-flask
-cloudinary
-openpyxl
+flask==3.0.0
+cloudinary==1.36.0
+openpyxl==3.1.2
 werkzeug

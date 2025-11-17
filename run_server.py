@@ -4,7 +4,7 @@ import time
 from app import app
 
 def run_flask():
-    app.run(host="127.0.0.1", port=5000, debug=False)
+    app.run(host="127.0.0.1", port=5001, debug=False)
 
 if __name__ == "__main__":
     # 在后台线程启动 Flask
@@ -16,7 +16,7 @@ if __name__ == "__main__":
     time.sleep(1.5)
 
     # 自动打开浏览器
-    webbrowser.open("http://127.0.0.1:5000")
+    webbrowser.open("http://127.0.0.1:5001")
 
     # 阻止程序退出
     flask_thread.join()

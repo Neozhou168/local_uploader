@@ -1,4 +1,5 @@
 import os
+from dotenv import load_dotenv
 import zipfile
 import tempfile
 import re
@@ -8,15 +9,18 @@ from openpyxl import load_workbook
 import cloudinary
 import cloudinary.uploader
 
+# Load environment variables from .env file
+load_dotenv()
+
 app = Flask(__name__)
 
 # -------------------------
 # Cloudinary Configuration
 # -------------------------
 cloudinary.config(
-    cloud_name="dekytgf4z",
-    api_key="688514571774879",
-    api_secret="thzyNxQjXcic9UY5-s1Jn09nCSg",
+    cloud_name=os.environ.get("CLOUDINARY_CLOUD_NAME"),
+    api_key=os.environ.get("CLOUDINARY_API_KEY"),
+    api_secret=os.environ.get("CLOUDINARY_API_SECRET"),
     secure=True
 )
 
@@ -130,4 +134,6 @@ def upload():
     )
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    # Use PORT from environment variable (Railway provides this)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=False)
