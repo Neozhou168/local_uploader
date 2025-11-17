@@ -111,11 +111,11 @@ def index():
 
 @app.route("/upload", methods=["POST"])
 def upload():
-    if "excel" not in request.files or "zip" not in request.files:
+    if "excel_file" not in request.files or "zip_file" not in request.files:
         return "❌ Missing Excel or ZIP file", 400
 
-    excel_file = request.files["excel"]
-    zip_file = request.files["zip"]
+    excel_file = request.files["excel_file"]
+    zip_file = request.files["zip_file"]
 
     try:
         output_path = process_excel_and_zip(excel_file, zip_file)
